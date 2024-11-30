@@ -3,73 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вычисление возраста</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 50px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            max-width: 400px;
-            text-align: center;
-        }
-        input[type="date"] {
-            padding: 10px;
-            margin-top: 10px;
-            width: 100%;
-        }
-        button {
-            padding: 10px;
-            margin-top: 10px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-    </style>
+    <title>Вычислитель возраста</title>
 </head>
 <body>
+    <h1>Вычислитель возраста</h1>
+    <form method="post">
+        <label for="birthdate">Введите вашу дату рождения (ГГГГ-ММ-ДД):</label>
+        <input type="date" id="birthdate" name="birthdate" required>
+        <button type="submit">Вычислить возраст</button>
+    </form>
 
-    <h1>Вычислите свой возраст</h1>
-    <label for="birthdate">Введите вашу дату рождения:</label>
-    <input type="date" id="birthdate" name="birthdate" required>
-    <button id="submitButton">Вычислить возраст</button>
-    
-    <h2 id="result"></h2>
-
-    <script>
-        // Код на Python для вычисления возраста (для примера)
-        /*
-        from datetime import datetime
-
-        def calculate_age(birthdate_str):
-            birthdate = datetime.strptime(birthdate_str, '%Y-%m-%d')
-            today = datetime.today()
-            age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
-            return age
-        */
-        
-        document.getElementById("submitButton").addEventListener("click", function() {
-            const birthdate = document.getElementById("birthdate").value;
-            if (!birthdate) {
-                alert("Пожалуйста, введите дату рождения.");
-                return;
-            }
-            const today = new Date();
-            const birthDateObj = new Date(birthdate);
-            let age = today.getFullYear() - birthDateObj.getFullYear();
-            const monthDiff = today.getMonth() - birthDateObj.getMonth();
-            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDateObj.getDate())) {
-                age--;
-            }
-            document.getElementById("result").innerText = `Ваш возраст: ${age} лет.`;
-        });
-    </script>
-
+    {% if age is not none %}
+        <h2>Ваш возраст: {{ age }} лет.</h2>
+    {% endif %}
 </body>
 </html>
