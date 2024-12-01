@@ -3,18 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вычислитель возраста</title>
+    <title>Красочный Сайт</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .content {
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        footer {
+            text-align: center;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-    <h1>Вычислитель возраста</h1>
-    <form method="post">
-        <label for="birthdate">Введите вашу дату рождения (ГГГГ-ММ-ДД):</label>
-        <input type="date" id="birthdate" name="birthdate" required>
-        <button type="submit">Вычислить возраст</button>
-    </form>
 
-    {% if age is not none %}
-        <h2>Ваш возраст: {{ age }} лет.</h2>
-    {% endif %}
+<header>
+    <h1>Добро пожаловать на мой красочный сайт!</h1>
+    <nav>
+        <a href="#about">О сайте</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+</header>
+
+<div class="content">
+
+    <section id="about">
+        <h2>О сайте</h2>
+        <p>Это мой первый красочный сайт, созданный с использованием HTML и CSS. Я рад поделиться с вами информацией о своих увлечениях и любимых проектах!</p>
+    </section>
+
+    <section id="gallery">
+        <h2>Галерея</h2>
+        <img src="https://via.placeholder.com/600x400" alt="Пример изображения">
+        <p>Здесь вы можете видеть одно из моих любимых изображений. В будущем я добавлю больше картинок, чтобы поделиться своими увлечениями!</p>
+    </section>
+
+    <section id="contact">
+        <h2>Контакты</h2>
+        <p>Если вы хотите связаться со мной, вы можете написать мне на <a href="mailto:example@example.com">example@example.com</a>.</p>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2023 Мой Красочный Сайт. Все права защищены.</p>
+</footer>
+
 </body>
 </html>
